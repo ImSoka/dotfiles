@@ -1,6 +1,4 @@
-packadd! dracula
 syntax enable
-colorscheme dracula
 set number
 set relativenumber
 set tabstop=4
@@ -18,7 +16,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'gko/vim-coloresque'
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'noahfrederick/vim-composer'
+Plug 'noahfrederick/vim-laravel'
 
 call plug#end()
-
-
