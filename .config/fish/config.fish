@@ -11,7 +11,15 @@
 alias ls 'ls -l --color=auto'
 alias ls 'ls -lA'
 
-
 #Git
+alias dotfiles 'git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias gs 'git status'
+alias g 'git'
+alias ga 'git add'
+alias gc 'git commit -m'
 
-alias dotfiles 'git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME'
+#Laravel Projects
+alias artisan='php artisan'
+alias sail='./vendor/bin/sail'
+
+starship init fish | source
