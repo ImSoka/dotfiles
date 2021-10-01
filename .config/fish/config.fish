@@ -4,14 +4,38 @@
 #  \___ \ / _ \| |/ / _` |      : `; .-.: :   .--.  .--.
 #  ____) | (_) |   < (_| |    _ : :  : :: :_ ' '_.'`._-.'
 # |_____/ \___/|_|\_\__,_|   :_;:_;  :_;`.__;`.__.'`.__.' 
+#---------------------------------------------------------
+#  This is my fish shell configuration file
+#  Nothing too special here, pretty common stuff i guess
 #
-#  Fish shell configuration
+#  Created at = 04/08/2021
+#  Updated at = 01/09/2021
 
-# Aliases
+#-------------------------------#
+#                               #
+#            Aliases            #
+#                               #
+#-------------------------------#
+
+#ls
 alias ls 'ls -l --color=auto'
-alias ls 'ls -lA'
+alias la 'ls -lA'
 
-
-#Git
-
+#git
 alias dotfiles 'git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME'
+alias gs 'git status'
+alias ga 'git add'
+alias gcm 'git commit'
+
+#Laravel
+alias artisan 'php7 artisan' #Arch linux way of running php version 7
+alias sail './vendor/bin/sail'
+
+#-------------------------------#
+#                               #
+#     Environment Variables     #
+#                               #
+#-------------------------------#
+
+#Remove fish_greeting
+set -g fish_greeting
