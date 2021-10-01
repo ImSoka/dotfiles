@@ -4,12 +4,15 @@
 ;  \___ \ / _ \| |/ / _` |    : `; .-.: :   .--.  .--.
 ;  ____) | (_) |   < (_| |  _ : :  : :: :_ ' '_.'`._-.'
 ; |_____/ \___/|_|\_\__,_| :_;:_;  :_;`.__;`.__.'`.__.' 
-
-; This is my config file for my own instance of polybar
-
-; Created on 06/02/2021
-; Last Modified on 06/02/2021
-; Author: Soka
+;-------------------------------------------------------
+; 
+;  Polybar config.
+;
+;  Created at = 06/02/2021
+;  Updated at = 04/08/2021
+;  Author: Soka
+;
+;  Configuration cheatsheet at: https://github.com/polybar/polybar/wiki/Configuration
 
 
 ;   _____      _
@@ -21,36 +24,55 @@
 
 [colors]
 background = #282a36
+background-alt = #3f444a
 foreground = #f8f8f2
+
+cyan = #8be9fd
+green = #50fa7b
+orange = #ffb86c
+pink = #ff79c6
+purple = #bd93f9
+red = #ff5555
+yellow = #f1fa8c
+
+
 ;  ____
 ; |  _ \
 ; | |_) | __ _ _ __
 ; |  _ < / _` | '__|
 ; | |_) | (_| | |
 ; |____/ \__,_|_|
-
+;
 [bar/main]
-
-; Dimensions in % or pixels
-width = 100%
-height = 25
-
-;how much space is reserved at the beginning/end of the bar
-padding = 2
-
-;How much space is reserved between modules
-module-margin-left = 2
+width = 3400
+height = 34
+offset-x = 20
+offset-y = 10
+radius = 0
+fixed-center = true
+locale = es_ES.UTF-8
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-modules-left = pulseaudio backlight 
-modules-center = date
-modules-right = wired-network wireless-network memory cpu battery 
+line-size = 3
+line-color = ${colors.red}
 
-font-0 = Sauce Code Pro Nerd Font Mono:pixelsize=11;2
+border-size = 1
+border-color = ${colors.background-alt}
 
-locale = es_ES.UTF-8
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 0
+module-margin-right = 2
+
+modules-left = awesome 
+modules-center = 
+modules-right = memory volume date
+
+font-0 = Sauce Code Pro Nerd Font Mono:pixelsize=16;4
+font-1 = icomoon\-feather:size=15;5
 
 ;  __  __           _       _
 ; |  \/  |         | |     | |
@@ -59,127 +81,87 @@ locale = es_ES.UTF-8
 ; | |  | | (_) | (_| | |_| | |  __/\__ \
 ; |_|  |_|\___/ \__,_|\__,_|_|\___||___/
 
-[module/backlight]
-type = internal/backlight
+[module/awesome]
+type = internal/xworkspaces
 
-;Use the following command to list available card:
-; $ ls -l /sys/class/backlight
-card = intel_backlight
+pin-workspaces = false
 
-;Allow changing the brightness with the scroll wheel
-enable-scroll = true
+enable-click = true
+enable-scroll = false
 
-format = <ramp> <bar>
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;
+icon-4 = 5;
+icon-default = 
 
-bar-width = 10
-bar-fill = 
-bar-empty =  
-bar-indicator = ⏽
+format = <label-state>
 
-ramp-0 =  
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
-ramp-4 = 
+label-monitor = %name%
 
-[module/cpu]
-type = internal/cpu
+label-active = 
+label-active-background = ${colors.background-alt}
+label-active-foreground = ${colors.purple}
+label-active-padding = 1
 
-interval = 1
+label-occupied = 
+label-occupied-background = ${colors.background-alt}
+label-occupied-foreground = ${colors.foreground}
+label-occupied-padding = 1
 
-format = <label>
+label-urgent = 
+label-urgent-background = ${colors.background-alt}
+label-urgent-foreground = ${colors.red}
+label-urgent-padding = 1
 
-label =  %percentage%%
+label-empty = 
+label-empty-background = ${colors.background-alt}
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 1
 
 [module/date]
 type = internal/date
 
-interval = 1.0
-
-date = %A, %d-%m-%Y
-
-time = %H:%M:%S
-
-format = <label>
+date-alt = %A, %d de %B del %Y
+time = %{T1}%{T-} %H:%M
 
 label = %date% %time%
+label-foreground = ${colors.orange}
 
-[module/wireless-network]
-type = internal/network
-interface = wlan0
+[module/volume]
+type = internal/pulseaudio
 
-interval = 3.0
+use-iu-max = true
+interval = 5
 
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
+format-volume = <label-volume>
+label-volume = %{T1}%{T-} %percentage%%
+label-volume-foreground = ${colors.green}
 
-label-connected =  %essid%
-label-disconnected = 睊
+#format-volume = <bar-volume>
+#bar-volume-width = 5
+#bar-volume-empty = ─
+#bar-volume-empty-foreground = ${colors.foreground}
+#bar-volume-fill = ─
+#bar-volume-fill-foreground = ${colors.purple}
+#bar-volume-indicator = |
+#bar-volume-indicator-foreground = ${colors.foreground}
 
-[module/wired-network]
-type = internal/network
-interface = enp1s0
+format-muted = <label-muted>
+label-muted = %{T1}%{T-} mute
+label-muted-foreground = ${colors.green}
 
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-
-label-connected =  %local_ip%
-label-disconnected =  
+click-right = pavucontrol
 
 [module/memory]
 type = internal/memory
-interval = 1
-
+interval = 3
 format = <label>
 
-label =  %percentage_used%%
+label = %{T1}%{T-} %percentage_used%% 
 
-[module/battery]
-type = internal/battery
-poll-interval= 5
+label-foreground = ${colors.yellow}
 
-full-at = 100
-
-battery = BAT0
-adapter = ADP0
-
-format-charging = <animation-charging> <label-charging>
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 1000
-label-charging = %percentage%%
-
-format-discharging = <ramp-capacity> <label-discharging>
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-label-discharging = %percentage%%
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-; If true ~153% if false 100%
-use-ui-max = false
-
-format-volume = <ramp-volume> <bar-volume>
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-
-bar-volume-width = 10
-bar-volume-fill = 
-bar-volume-empty = 
-bar-volume-indicator = ⏽
-
-format-muted = <label-muted>
-
-label-muted = ﱝ
 
 ; vim:ft=dosini
