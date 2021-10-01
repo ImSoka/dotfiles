@@ -9,7 +9,6 @@
 #  Nothing too special here, pretty common stuff i guess
 #
 #  Created at = 04/08/2021
-#  Updated at = 01/09/2021
 
 #-------------------------------#
 #                               #
@@ -25,7 +24,7 @@ alias la 'ls -lA'
 alias dotfiles 'git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME'
 alias gs 'git status'
 alias ga 'git add'
-alias gcm 'git commit'
+alias gcm 'git commit -m'
 
 #Laravel
 alias artisan 'php7 artisan' #Arch linux way of running php version 7
