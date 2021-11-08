@@ -3,7 +3,7 @@
 # | (___   ___ | | ____ _       : .-':_;: :
 #  \___ \ / _ \| |/ / _` |      : `; .-.: :   .--.  .--.
 #  ____) | (_) |   < (_| |    _ : :  : :: :_ ' '_.'`._-.'
-# |_____/ \___/|_|\_\__,_|   :_;:_;  :_;`.__;`.__.'`.__.' 
+# |_____/ \___/|_|\_\__,_|   :_;:_;  :_;`.__;`.__.'`.__.'
 #---------------------------------------------------------
 #  This is my fish shell configuration file
 #  Nothing too special here, pretty common stuff i guess
@@ -16,17 +16,20 @@
 #                               #
 #-------------------------------#
 
-#ls
+# ls
 alias ls 'ls -l --color=auto'
 alias la 'ls -lA'
 
-#git
+# git
 alias dotfiles 'git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME'
 alias gs 'git status'
 alias ga 'git add'
 alias gcm 'git commit -m'
 
-#Laravel
+# Nvim = vim
+alias vim 'nvim'
+
+# Laravel
 alias artisan 'php7 artisan' #Arch linux way of running php version 7
 alias sail './vendor/bin/sail'
 
@@ -36,5 +39,5 @@ alias sail './vendor/bin/sail'
 #                               #
 #-------------------------------#
 
-#Remove fish_greeting
+# Remove fish_greeting
 set -g fish_greeting

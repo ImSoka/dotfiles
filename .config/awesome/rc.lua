@@ -49,7 +49,7 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -165,7 +165,8 @@ end)
 do
     local autostart = {
         os.getenv('HOME') .. '/.config/polybar/scripts/launch.sh main',
-        'picom'
+        'picom',
+        'emote'
     }
 
     for _,i in pairs(autostart) do
@@ -435,8 +436,6 @@ awful.rules.rules = {
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
-          "Steam",
-          "keepassxc",
           "xtightvncviewer"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client

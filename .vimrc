@@ -6,11 +6,13 @@ set autoindent
 set cindent
 set background=dark
 set nocompatible
+set incsearch
+set scrolloff=8
 
 " Allows finding files in working directory
 set path+=**
 
-"vim-plug Plugin Manager Configuration
+" vim-plug Plugin Manager Configuration
 call plug#begin('~/.vim/plugged')
 
 Plug 'sheerun/vim-polyglot'
@@ -25,5 +27,5 @@ Plug 'morhetz/gruvbox'
 
 call plug#end()
 
-" Enable colorscheme 
+" Enable colorscheme
 autocmd vimenter * ++nested colorscheme gruvbox

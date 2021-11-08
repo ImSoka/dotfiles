@@ -35,7 +35,11 @@ let mapleader= " "
 
 " Why do i have to remap this
 nnoremap Y y$
+
+" Git remaps from the primeagean
 nmap <leader>gs :G<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gj :diffget //3<CR>
 
 nnoremap <leader>ff :Telescope find_files<CR>
 nnoremap <leader>fg :Telescope live_grep<CR>
