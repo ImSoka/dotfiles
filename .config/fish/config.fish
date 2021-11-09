@@ -21,7 +21,7 @@ alias ls 'ls -l --color=auto'
 alias la 'ls -lA'
 
 # git
-alias dotfiles 'git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME'
+alias dotfiles 'git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias gs 'git status'
 alias ga 'git add'
 alias gcm 'git commit -m'
