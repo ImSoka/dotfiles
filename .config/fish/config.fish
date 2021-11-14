@@ -41,3 +41,10 @@ alias sail './vendor/bin/sail'
 
 # Remove fish_greeting
 set -g fish_greeting
+
+# Start X at login
+if status is-login
+    if test -z "$DISPLAY" -a "$XDG_VTNR" -eq 1
+        exec startx --keeptty
+    end
+end
