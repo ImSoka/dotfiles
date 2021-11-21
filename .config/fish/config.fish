@@ -30,7 +30,7 @@ alias gcm 'git commit -m'
 alias vim 'nvim'
 
 # Laravel
-alias artisan 'php7 artisan' #Arch linux way of running php version 7
+alias artisan 'php artisan'
 alias sail './vendor/bin/sail'
 
 #-------------------------------#
@@ -48,3 +48,6 @@ if status is-login
         exec startx --keeptty
     end
 end
+
+# Start ssh-agent
+fish_ssh_agent
