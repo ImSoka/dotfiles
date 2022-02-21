@@ -59,12 +59,12 @@ augroup AUTO_COMMANDS
 augroup END
 
 lua << EOF
-    require'lspconfig'.phpactor.setup{}
+    require'lspconfig'.intelephense.setup{}
 EOF
 
 set completeopt=menu,menuone,noselect
 
-lua <<EOF
+lua << EOF
   -- Setup nvim-cmp.
   local cmp = require'cmp'
 
@@ -119,7 +119,7 @@ lua <<EOF
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig')['phpactor'].setup {
+  require('lspconfig')['intelephense'].setup {
     capabilities = capabilities
   }
 EOF
